@@ -1,0 +1,103 @@
+export default `<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>The Zone Health and Fitness | Elite CrossFit, Hyrox Training & Nutrition</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="The Zone Health and Fitness offers elite CrossFit training, Hyrox preparation, and nutrition coaching. Join 500+ members, expert coaches, and discover Zone Nutrition supplements.">
+  <meta name="keywords" content="CrossFit, Hyrox, fitness, gym, personal training, nutrition, diet coaching, supplements, The Zone, elite training, functional fitness">
+  <meta name="author" content="The Zone Health and Fitness">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://thezonehealthandfitness.com/">
+  <meta property="og:title" content="The Zone Health and Fitness | Elite CrossFit, Hyrox Training &amp; Nutrition">
+  <meta property="og:description" content="Elite CrossFit, Hyrox training and nutrition coaching that transforms your health and fitness potential. Join our community of 500+ athletes and discover Zone Nutrition.">
+  <meta property="og:image" content="/assets/images/og-image.jpg">
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://thezonehealthandfitness.com/">
+  <meta property="twitter:title" content="The Zone Health and Fitness | Elite CrossFit, Hyrox Training &amp; Nutrition">
+  <meta property="twitter:description" content="Elite CrossFit, Hyrox training and nutrition coaching that transforms your health and fitness potential.">
+  <meta property="twitter:image" content="/assets/images/og-image.jpg">
+  
+  <!-- Additional SEO Meta Tags -->
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#22c55e">
+  <link rel="canonical" href="https://thezonehealthandfitness.com/">
+  
+  <!-- Structured Data for Local Business -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ExerciseGym",
+    "name": "The Zone Health and Fitness",
+    "description": "Elite CrossFit, Hyrox training and nutrition coaching that transforms your health and fitness potential",
+    "url": "https://thezonehealthandfitness.com",
+    "telephone": "(555) 123-ZONE",
+    "email": "hello@thezonehealthandfitness.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "123 Fitness Street",
+      "addressLocality": "Green Zone",
+      "addressRegion": "FL",
+      "postalCode": "12345",
+      "addressCountry": "US"
+    },
+    "openingHours": [
+      "Mo-Fr 05:00-21:00",
+      "Sa-Su 07:00-16:00"
+    ],
+    "priceRange": "\$\$",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Fitness & Health Services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "CrossFit Classes",
+            "description": "High-intensity functional fitness classes"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Hyrox Training",
+            "description": "Specialized race preparation and conditioning"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Nutrition & Diet Coaching",
+            "description": "Personalized meal planning, diet optimization, and Zone Nutrition supplements"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Personal Training",
+            "description": "One-on-one coaching sessions"
+          }
+        }
+      ]
+    }
+  }
+  </script>
+  
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<link rel="stylesheet" href="styles-T7F5EZMD.css"></head>
+<body><script type="text/javascript" id="ng-event-dispatch-contract">(()=>{function p(t,n,r,o,e,i,f,m){return{eventType:t,event:n,targetElement:r,eic:o,timeStamp:e,eia:i,eirp:f,eiack:m}}function u(t){let n=[],r=e=>{n.push(e)};return{c:t,q:n,et:[],etc:[],d:r,h:e=>{r(p(e.type,e,e.target,t,Date.now()))}}}function s(t,n,r){for(let o=0;o<n.length;o++){let e=n[o];(r?t.etc:t.et).push(e),t.c.addEventListener(e,t.h,r)}}function c(t,n,r,o,e=window){let i=u(t);e._ejsas||(e._ejsas={}),e._ejsas[n]=i,s(i,r),s(i,o,!0)}window.__jsaction_bootstrap=c;})();
+</script>
+  <app-root></app-root>
+<script src="polyfills-5CFQRCPP.js" type="module"></script><script src="main-743MG5DG.js" type="module"></script></body>
+</html>
+`;
