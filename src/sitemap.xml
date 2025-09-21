@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://the-zone-fitness.fly.dev/</loc>
+    <loc>https://thezonefitness.co.za/</loc>
     <lastmod>2025-09-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://the-zone-fitness.fly.dev/about</loc>
+    <loc>https://thezonefitness.co.za/about</loc>
     <lastmod>2025-09-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://the-zone-fitness.fly.dev/services</loc>
+    <loc>https://thezonefitness.co.za/services</loc>
     <lastmod>2025-09-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://the-zone-fitness.fly.dev/contact</loc>
+    <loc>https://thezonefitness.co.za/contact</loc>
     <lastmod>2025-09-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
