@@ -23,3 +23,84 @@
   transform: scale(1.02);
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
 }
+
+/* Mobile-specific improvements */
+@media (max-width: 768px) {
+  /* Improve touch targets for mobile */
+  .mobile-nav-link,
+  button,
+  a {
+    min-height: 44px; /* iOS recommendation for touch targets */
+    min-width: 44px;
+  }
+
+  /* Better spacing for mobile content */
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  /* Reduce animations on mobile for better performance */
+  .animate-pulse,
+  .animate-bounce,
+  .float {
+    animation-duration: 2s;
+  }
+
+  /* Hide complex background elements on small screens */
+  .opacity-10,
+  .opacity-15,
+  .opacity-20 {
+    display: none;
+  }
+
+  /* Optimize carousel for mobile */
+  #carousel {
+    /* Ensure proper width constraint */
+    width: 100%;
+    max-width: 100%;
+    overflow: visible; /* Allow transform to work properly */
+  }
+
+  #carousel > div {
+    /* Ensure mobile slides are properly sized */
+    min-width: 100%;
+    max-width: 100%;
+  }
+
+  /* Improve mobile carousel interactions */
+  .group\/item {
+    /* Disable hover effects on mobile */
+    transform: none !important;
+  }
+
+  .group\/item:hover {
+    transform: none !important;
+  }
+
+  /* Make carousel images more mobile-friendly */
+  .group\/item img {
+    transform: none !important;
+  }
+
+  .group\/item:hover img {
+    transform: none !important;
+  }
+
+  /* Simplify overlays for mobile */
+  .group\/item .absolute {
+    opacity: 0.5 !important;
+  }
+}
+
+/* Improve scrolling behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Better focus styles for accessibility */
+button:focus,
+a:focus {
+  outline: 2px solid #10b981;
+  outline-offset: 2px;
+}

@@ -4,15 +4,35 @@
   class="fixed top-0 w-full bg-gradient-to-r from-zone-black via-zone-black to-zone-green-900/20 backdrop-blur-md z-50 border-b border-zone-green-500/30 shadow-lg shadow-zone-green-500/10">
   <div class="w-full px-4 sm:px-6 lg:px-8">
     <div class="flex justify-between items-center h-20">
-      <div class="flex-shrink-0 flex items-center">
+      <div class="flex-shrink-0 flex items-center" ngSkipHydration>
         <div
-          class="text-3xl font-black bg-gradient-to-r from-zone-green-400 to-zone-green-600 bg-clip-text text-transparent drop-shadow-lg">
+          class="text-2xl sm:text-3xl font-black bg-gradient-to-r from-zone-green-400 to-zone-green-600 bg-clip-text text-transparent drop-shadow-lg">
           THE ZONE
         </div>
         <div class="ml-2">
-          <i data-lucide="map-pin" class="w-5 h-5 text-zone-green-500 animate-pulse"></i>
+          <i data-lucide="map-pin" class="w-4 h-4 sm:w-5 sm:h-5 text-zone-green-500 animate-pulse"></i>
         </div>
       </div>
+
+      <!-- Mobile menu button -->
+      <div class="md:hidden">
+        <button
+          (click)="toggleMobileMenu()"
+          class="inline-flex items-center justify-center p-2 rounded-md text-white hover:text-zone-green-400 hover:bg-zone-green-500/10 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-zone-green-500 transition-all duration-200"
+          [attr.aria-expanded]="isMobileMenuOpen">
+          <span class="sr-only">Open main menu</span>
+          <!-- Hamburger icon -->
+          <svg *ngIf="!isMobileMenuOpen" class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+          <!-- Close icon -->
+          <svg *ngIf="isMobileMenuOpen" class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Desktop menu -->
       <div class="hidden md:block">
         <div class="ml-10 flex items-center space-x-2">
           <a href="#home"
@@ -51,7 +71,7 @@
             </div>
           </a>
           <a href="#nutrition"
-            class="group relative overflow-hidden bg-gradient-to-r from-zone-green-500 via-zone-green-600 to-zone-green-500 hover:from-zone-green-400 hover:via-zone-green-500 hover:to-zone-green-400 text-white px-6 py-3.5 text-sm font-black rounded-xl transition-all duration-300 shadow-xl shadow-zone-green-500/40 hover:shadow-2xl hover:shadow-zone-green-400/50 transform hover:scale-110 hover:-translate-y-1 border border-zone-green-400/20">
+            class="group relative overflow-hidden bg-gradient-to-r from-zone-green-500 via-zone-green-600 to-zone-green-500 hover:from-zone-green-400 hover:via-zone-green-500 hover:to-zone-green-400 text-white px-6 py-3.5 text-sm font-black rounded-xl transition-all duration-300 shadow-xl shadow-zone-green-500/40 hover:shadow-2xl hover:shadow-zone-green-400/50 transform hover:scale-110 hover:-translate-y-1 border border-zone-green-400/20" ngSkipHydration>
             <span class="flex items-center relative z-10">
               <i data-lucide="flask-conical" class="w-4 h-4 mr-2"></i>
               <span class="tracking-wider">ZONE NUTRITION</span>
@@ -63,6 +83,45 @@
           </a>
         </div>
       </div>
+    </div>
+  </div>
+
+  <!-- Mobile menu -->
+  <div class="md:hidden" *ngIf="isMobileMenuOpen">
+    <div class="px-2 pt-2 pb-3 space-y-1 bg-gradient-to-r from-zone-black via-zone-black to-zone-green-900/20 backdrop-blur-md border-b border-zone-green-500/30">
+      <button
+        (click)="navigateToSection('home')"
+        class="mobile-nav-link block px-3 py-2 rounded-md text-base font-semibold text-white hover:text-zone-green-400 hover:bg-zone-green-500/10 transition-all duration-200 w-full text-left">
+        HOME
+      </button>
+      <button
+        (click)="navigateToSection('about')"
+        class="mobile-nav-link block px-3 py-2 rounded-md text-base font-semibold text-white hover:text-zone-green-400 hover:bg-zone-green-500/10 transition-all duration-200 w-full text-left">
+        ABOUT
+      </button>
+      <button
+        (click)="navigateToSection('coaches')"
+        class="mobile-nav-link block px-3 py-2 rounded-md text-base font-semibold text-white hover:text-zone-green-400 hover:bg-zone-green-500/10 transition-all duration-200 w-full text-left">
+        COACHES
+      </button>
+      <button
+        (click)="navigateToSection('schedule')"
+        class="mobile-nav-link block px-3 py-2 rounded-md text-base font-semibold text-white hover:text-zone-green-400 hover:bg-zone-green-500/10 transition-all duration-200 w-full text-left">
+        CLASSES
+      </button>
+      <button
+        (click)="navigateToSection('contact')"
+        class="mobile-nav-link block px-3 py-2 rounded-md text-base font-semibold text-white hover:text-zone-green-400 hover:bg-zone-green-500/10 transition-all duration-200 w-full text-left">
+        CONTACT
+      </button>
+      <button
+        (click)="navigateToSection('nutrition')"
+        class="mobile-nav-link block px-3 py-2 rounded-md text-base font-semibold bg-gradient-to-r from-zone-green-500 to-zone-green-600 hover:from-zone-green-400 hover:to-zone-green-500 text-white transition-all duration-200 w-full text-left mt-2 shadow-lg" ngSkipHydration>
+        <span class="flex items-center">
+          <i data-lucide="flask-conical" class="w-4 h-4 mr-2"></i>
+          ZONE NUTRITION
+        </span>
+      </button>
     </div>
   </div>
 </nav>
@@ -155,14 +214,14 @@
         </div>
       </div>
 
-      <h1 class="text-6xl md:text-8xl font-black text-white mb-6 tracking-tight">
-        <span class="block text-gray-400 text-2xl md:text-3xl font-normal uppercase tracking-widest mb-4">WELCOME
+      <h1 class="text-4xl sm:text-6xl md:text-8xl font-black text-white mb-6 tracking-tight">
+        <span class="block text-gray-400 text-lg sm:text-2xl md:text-3xl font-normal uppercase tracking-widest mb-4">WELCOME
           TO</span>
         <span
           class="bg-gradient-to-r from-white via-zone-green-400 to-white bg-clip-text text-transparent drop-shadow-2xl">
           THE ZONE
         </span>
-        <span class="block text-zone-green-400 text-2xl md:text-4xl font-bold mt-2 tracking-wide">
+        <span class="block text-zone-green-400 text-xl sm:text-2xl md:text-4xl font-bold mt-2 tracking-wide">
           HEALTH & FITNESS
         </span>
       </h1>
@@ -186,15 +245,15 @@
         </span>
       </div>
 
-      <p class="text-xl md:text-2xl text-gray-300 mb-10 max-w-4xl mx-auto leading-relaxed">
+      <p class="text-lg sm:text-xl md:text-2xl text-gray-300 mb-8 sm:mb-10 max-w-4xl mx-auto leading-relaxed px-4">
         Elite training that transforms your health and fitness potential.
         <span class="text-zone-green-400 font-semibold">Push your limits. Break your barriers. Become
           unstoppable.</span>
       </p>
 
-      <div class="flex flex-col sm:flex-row gap-6 justify-center">
+      <div class="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center px-4 mb-16">
         <a href="#contact"
-          class="group relative bg-gradient-to-r from-zone-green-500 to-zone-green-600 hover:from-zone-green-400 hover:to-zone-green-500 text-white px-10 py-5 rounded-xl text-lg font-bold transition-all duration-300 shadow-2xl shadow-zone-green-500/30 transform hover:scale-105 hover:-translate-y-1 overflow-hidden inline-block">
+          class="group relative bg-gradient-to-r from-zone-green-500 to-zone-green-600 hover:from-zone-green-400 hover:to-zone-green-500 text-white px-8 sm:px-10 py-4 sm:py-5 rounded-xl text-base sm:text-lg font-bold transition-all duration-300 shadow-2xl shadow-zone-green-500/30 transform hover:scale-105 hover:-translate-y-1 overflow-hidden inline-block text-center">
           <span class="relative z-10 flex items-center justify-center">
             <i data-lucide="play" class="w-5 h-5 mr-3"></i>
             START YOUR JOURNEY
@@ -204,7 +263,7 @@
           </div>
         </a>
         <a href="#schedule"
-          class="group relative border-2 border-zone-green-500 text-zone-green-400 hover:text-white px-10 py-5 rounded-xl text-lg font-bold transition-all duration-300 hover:bg-zone-green-500 hover:shadow-lg hover:shadow-zone-green-500/30 transform hover:scale-105 hover:-translate-y-1 overflow-hidden inline-block">
+          class="group relative border-2 border-zone-green-500 text-zone-green-400 hover:text-white px-8 sm:px-10 py-4 sm:py-5 rounded-xl text-base sm:text-lg font-bold transition-all duration-300 hover:bg-zone-green-500 hover:shadow-lg hover:shadow-zone-green-500/30 transform hover:scale-105 hover:-translate-y-1 overflow-hidden inline-block text-center">
           <span class="relative z-10 flex items-center justify-center">
             <i data-lucide="calendar" class="w-5 h-5 mr-3"></i>
             VIEW CLASSES
@@ -213,18 +272,18 @@
       </div>
 
       <!-- Stats Preview -->
-      <div class="mt-16 grid grid-cols-3 gap-8 max-w-md mx-auto">
+      <div class="mt-12 sm:mt-16 grid grid-cols-3 gap-4 sm:gap-8 max-w-sm sm:max-w-md mx-auto px-4">
         <div class="text-center">
-          <div class="text-3xl font-bold text-zone-green-400">200+</div>
-          <div class="text-xs text-gray-400 uppercase tracking-wide">MEMBERS</div>
+          <div class="text-2xl sm:text-3xl font-bold text-zone-green-400">200+</div>
+          <div class="text-xs sm:text-sm text-gray-400 uppercase tracking-wide">MEMBERS</div>
         </div>
         <div class="text-center">
-          <div class="text-3xl font-bold text-zone-green-400">5+</div>
-          <div class="text-xs text-gray-400 uppercase tracking-wide">YEARS</div>
+          <div class="text-2xl sm:text-3xl font-bold text-zone-green-400">5+</div>
+          <div class="text-xs sm:text-sm text-gray-400 uppercase tracking-wide">YEARS</div>
         </div>
         <div class="text-center">
-          <div class="text-3xl font-bold text-zone-green-400">2</div>
-          <div class="text-xs text-gray-400 uppercase tracking-wide">COACHES</div>
+          <div class="text-2xl sm:text-3xl font-bold text-zone-green-400">2</div>
+          <div class="text-xs sm:text-sm text-gray-400 uppercase tracking-wide">COACHES</div>
         </div>
       </div>
     </div>
@@ -232,7 +291,7 @@
 </section>
 
 <!-- About Section -->
-<section id="about" class="py-24 bg-gradient-to-br from-gray-900 via-zone-black to-gray-900 relative overflow-hidden">
+<section id="about" class="py-16 sm:py-24 bg-gradient-to-br from-gray-900 via-zone-black to-gray-900 relative overflow-hidden">
   <!-- Background Elements -->
   <div
     class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-zone-green-500/10 to-transparent rounded-full blur-3xl">
@@ -458,7 +517,7 @@
 </section>
 
 <!-- Class Schedule Section -->
-<section id="schedule" class="py-24 bg-gray-900 relative overflow-hidden">
+<section id="schedule" class="py-16 sm:py-24 bg-gray-900 relative overflow-hidden">
   <!-- CrossFit Equipment Background for Schedule -->
   <div class="absolute top-20 right-16 opacity-8 animate-pulse">
     <svg width="100" height="100" viewBox="0 0 100 100" class="text-zone-green-500/20">
@@ -607,7 +666,7 @@
 </section>
 
 <!-- CrossFit Equipment & Training Showcase -->
-<section class="py-24 bg-gradient-to-br from-zone-black via-gray-900 to-zone-black relative overflow-hidden">
+<section class="py-16 sm:py-24 bg-gradient-to-br from-zone-black via-gray-900 to-zone-black relative overflow-hidden">
   <!-- Background Elements -->
   <div
     class="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-zone-green-500/5 via-transparent to-zone-green-600/5">
@@ -807,20 +866,20 @@
         </div>
       </div>
 
-      <div class="relative max-w-7xl mx-auto group">
+      <div class="relative max-w-7xl mx-auto group px-4 sm:px-0">
         <!-- Enhanced Carousel Container -->
         <div
-          class="relative overflow-hidden rounded-3xl shadow-2xl shadow-black/20 hover:shadow-black/30 transition-all duration-500">
+          class="relative overflow-hidden rounded-2xl sm:rounded-3xl shadow-2xl shadow-black/20 hover:shadow-black/30 transition-all duration-500 w-full">
           <!-- Subtle dark background -->
           <div class="absolute inset-0 bg-gradient-to-br from-gray-900/10 via-transparent to-gray-800/10 opacity-30">
           </div>
 
           <!-- Image container with enhanced transitions -->
-          <div id="carousel" class="flex transition-all duration-1000 ease-out transform-gpu">
+          <div id="carousel" class="flex transition-all duration-1000 ease-out transform-gpu w-full">
             @for (image of gymImages; track image; let i = $index) {
-            <div class="flex-shrink-0 relative aspect-[5/4] w-full md:w-1/2 lg:w-1/3 px-3">
+            <div class="flex-shrink-0 relative aspect-[4/3] sm:aspect-[5/4] w-full md:w-1/2 lg:w-1/3 px-1 sm:px-2 md:px-3">
               <div
-                class="relative w-full h-full rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-500 group/item transform hover:scale-[1.02] hover:-translate-y-1">
+                class="relative w-full h-full rounded-xl sm:rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-500 group/item transform hover:scale-[1.02] hover:-translate-y-1">
                 <!-- Gradient overlay that responds to hover -->
                 <div
                   class="absolute inset-0 bg-gradient-to-t from-zone-black/60 via-zone-black/20 to-transparent opacity-70 group-hover/item:opacity-90 transition-opacity duration-500 z-10">
@@ -863,10 +922,10 @@
           </div>
         </div>
 
-        <!-- Enhanced Navigation Arrows with Glow -->
+        <!-- Enhanced Navigation Arrows with Mobile Support -->
         <button id="prevBtn"
-          class="absolute -left-6 top-1/2 transform -translate-y-1/2 bg-gradient-to-r from-zone-green-500 to-zone-green-600 hover:from-zone-green-400 hover:to-zone-green-500 text-white p-4 rounded-full backdrop-blur-md transition-all duration-300 hover:scale-125 hover:shadow-lg hover:shadow-zone-green-500/50 border-2 border-zone-green-400/30 hover:border-zone-green-300/60 group opacity-0 group-hover:opacity-100">
-          <i data-lucide="chevron-left" class="w-6 h-6 group-hover:animate-pulse"></i>
+          class="absolute left-2 sm:-left-6 top-1/2 transform -translate-y-1/2 bg-gradient-to-r from-zone-green-500 to-zone-green-600 hover:from-zone-green-400 hover:to-zone-green-500 text-white p-3 sm:p-4 rounded-full backdrop-blur-md transition-all duration-300 hover:scale-125 hover:shadow-lg hover:shadow-zone-green-500/50 border-2 border-zone-green-400/30 hover:border-zone-green-300/60 group opacity-80 sm:opacity-0 sm:group-hover:opacity-100 z-30">
+          <i data-lucide="chevron-left" class="w-5 h-5 sm:w-6 sm:h-6 group-hover:animate-pulse"></i>
           <!-- Button glow effect -->
           <div
             class="absolute inset-0 bg-gradient-to-r from-zone-green-400/20 to-zone-green-500/20 rounded-full blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500">
@@ -874,8 +933,8 @@
         </button>
 
         <button id="nextBtn"
-          class="absolute -right-6 top-1/2 transform -translate-y-1/2 bg-gradient-to-r from-zone-green-500 to-zone-green-600 hover:from-zone-green-400 hover:to-zone-green-500 text-white p-4 rounded-full backdrop-blur-md transition-all duration-300 hover:scale-125 hover:shadow-lg hover:shadow-zone-green-500/50 border-2 border-zone-green-400/30 hover:border-zone-green-300/60 group opacity-0 group-hover:opacity-100">
-          <i data-lucide="chevron-right" class="w-6 h-6 group-hover:animate-pulse"></i>
+          class="absolute right-2 sm:-right-6 top-1/2 transform -translate-y-1/2 bg-gradient-to-r from-zone-green-500 to-zone-green-600 hover:from-zone-green-400 hover:to-zone-green-500 text-white p-3 sm:p-4 rounded-full backdrop-blur-md transition-all duration-300 hover:scale-125 hover:shadow-lg hover:shadow-zone-green-500/50 border-2 border-zone-green-400/30 hover:border-zone-green-300/60 group opacity-80 sm:opacity-0 sm:group-hover:opacity-100 z-30">
+          <i data-lucide="chevron-right" class="w-5 h-5 sm:w-6 sm:h-6 group-hover:animate-pulse"></i>
           <!-- Button glow effect -->
           <div
             class="absolute inset-0 bg-gradient-to-r from-zone-green-400/20 to-zone-green-500/20 rounded-full blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500">
@@ -883,14 +942,14 @@
         </button>
 
         <!-- Enhanced Dots Indicator with Animation -->
-        <div class="flex justify-center mt-8 space-x-3" id="dots">
+        <div class="hidden sm:flex justify-center mt-6 sm:mt-8 space-x-2 max-w-sm mx-auto" id="dots">
           <!-- Dots will be generated by JavaScript with enhanced styling -->
         </div>
 
         <!-- Progress bar for carousel -->
-        <div class="w-full bg-zone-green-500/10 h-1 rounded-full mt-6 overflow-hidden">
+        <div class="hidden sm:block w-full bg-zone-green-500/5 h-1 rounded-full mt-6 overflow-hidden max-w-xs mx-auto">
           <div
-            class="h-full bg-gradient-to-r from-zone-green-400 to-zone-green-500 rounded-full transition-all duration-1000 ease-out"
+            class="h-full bg-gradient-to-r from-zone-green-400/60 to-zone-green-500/60 rounded-full transition-all duration-1000 ease-out"
             style="width: 33.33%"></div>
         </div>
       </div>
@@ -899,7 +958,7 @@
 </section>
 
 <!-- Contact Section -->
-<section id="contact" class="py-24 bg-zone-black relative overflow-hidden">
+<section id="contact" class="py-16 sm:py-24 bg-zone-black relative overflow-hidden">
   <!-- Fitness equipment background for contact -->
   <div class="absolute bottom-20 right-10 equipment-pulse">
     <svg width="90" height="90" viewBox="0 0 90 90" class="text-zone-green-500/20">
@@ -984,26 +1043,26 @@
             <div>
               <label class="block text-sm font-medium text-gray-300 mb-2">First Name</label>
               <input type="text" name="firstName" ngModel required
-                class="w-full px-4 py-3 bg-zone-black border border-zone-green-700/30 rounded-lg text-white focus:outline-none focus:border-zone-green-500 placeholder-gray-500"
+                class="w-full px-4 py-4 sm:py-3 bg-zone-black border border-zone-green-700/30 rounded-lg text-white focus:outline-none focus:border-zone-green-500 focus:ring-2 focus:ring-zone-green-500/20 placeholder-gray-500 text-base"
                 placeholder="Enter your first name">
             </div>
             <div>
               <label class="block text-sm font-medium text-gray-300 mb-2">Last Name</label>
               <input type="text" name="lastName" ngModel required
-                class="w-full px-4 py-3 bg-zone-black border border-zone-green-700/30 rounded-lg text-white focus:outline-none focus:border-zone-green-500 placeholder-gray-500"
+                class="w-full px-4 py-4 sm:py-3 bg-zone-black border border-zone-green-700/30 rounded-lg text-white focus:outline-none focus:border-zone-green-500 focus:ring-2 focus:ring-zone-green-500/20 placeholder-gray-500 text-base"
                 placeholder="Enter your last name">
             </div>
           </div>
           <div>
             <label class="block text-sm font-medium text-gray-300 mb-2">Email</label>
             <input type="email" name="email" ngModel required
-              class="w-full px-4 py-3 bg-zone-black border border-zone-green-700/30 rounded-lg text-white focus:outline-none focus:border-zone-green-500 placeholder-gray-500"
+              class="w-full px-4 py-4 sm:py-3 bg-zone-black border border-zone-green-700/30 rounded-lg text-white focus:outline-none focus:border-zone-green-500 focus:ring-2 focus:ring-zone-green-500/20 placeholder-gray-500 text-base"
               placeholder="Enter your email address">
           </div>
           <div>
             <label class="block text-sm font-medium text-gray-300 mb-2">Message</label>
             <textarea rows="4" name="message" ngModel required
-              class="w-full px-4 py-3 bg-zone-black border border-zone-green-700/30 rounded-lg text-white focus:outline-none focus:border-zone-green-500 placeholder-gray-500"
+              class="w-full px-4 py-4 sm:py-3 bg-zone-black border border-zone-green-700/30 rounded-lg text-white focus:outline-none focus:border-zone-green-500 focus:ring-2 focus:ring-zone-green-500/20 placeholder-gray-500 text-base resize-none"
               placeholder="Tell us how we can help you..."></textarea>
           </div>
           <button type="submit" [disabled]="!contactForm.form.valid || isSubmitting"
@@ -1365,7 +1424,7 @@
               </div>
             </div>
 
-            <div class="space-y-3">
+            <div class="space-y-3" ngSkipHydration>
               <div class="flex items-center text-sm text-gray-300">
                 <i data-lucide="check-circle" class="w-4 h-4 mr-2 text-zone-green-400"></i>
                 <span>Elite Performance Formula</span>

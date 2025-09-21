@@ -10,7 +10,10 @@ import { HttpClient } from '@angular/common/http';
   selector: 'app-root',
   imports: [RouterOutlet, FormsModule, CommonModule],
   templateUrl: './app.html',
-  styleUrl: './app.scss'
+  styleUrl: './app.scss',
+  host: {
+    'ngSkipHydration': 'true'
+  }
 })
 export class App implements OnInit {
 
@@ -20,8 +23,11 @@ export class App implements OnInit {
   toastTitle = '';
   toastType: 'success' | 'error' = 'success';
 
-  // SMTP server URL (adjust if your server runs on different port)
-  private smtpServerUrl = 'http://localhost:3001';
+  // Mobile navigation
+  isMobileMenuOpen = false;
+
+  // SMTP server URL (Azure hosted)
+  private smtpServerUrl = 'https://zone-fitness-smtp-bthxdyd5c9d4dyff.southafricanorth-01.azurewebsites.net';
 
   // Array of all gym images
   gymImages: string[] = [
@@ -84,6 +90,19 @@ export class App implements OnInit {
     }
   }
 
+  @HostListener('document:click', ['$event'])
+  onDocumentClick(event: Event) {
+    if (isPlatformBrowser(this.platformId) && this.isMobileMenuOpen) {
+      const target = event.target as HTMLElement;
+      const nav = document.querySelector('nav');
+
+      // Close mobile menu if clicked outside
+      if (nav && !nav.contains(target)) {
+        this.closeMobileMenu();
+      }
+    }
+  }
+
   private updateActiveNavLink() {
     if (!isPlatformBrowser(this.platformId)) return;
 
@@ -132,6 +151,7 @@ export class App implements OnInit {
       return 1; // mobile: show 1
     };
 
+
     let slidesPerView = getSlidesPerView();
     const maxSlideIndex = Math.max(0, totalSlides - slidesPerView);
 
@@ -141,21 +161,36 @@ export class App implements OnInit {
       const numDots = maxSlideIndex + 1;
       for (let i = 0; i < numDots; i++) {
         const dot = document.createElement('button');
+        // Desktop-only dots (hidden on mobile)
         dot.className = `w-3 h-3 rounded-full transition-all ${i === 0 ? 'bg-zone-green-400' : 'bg-gray-600 hover:bg-gray-500'}`;
+        dot.style.cursor = 'pointer';
         dot.addEventListener('click', () => goToSlide(i));
         dotsContainer.appendChild(dot);
       }
     };
 
     const updateCarousel = () => {
-      const slideWidth = 100 / slidesPerView;
-      const translateX = -currentSlide * slideWidth;
+      // Calculate proper translation based on current viewport
+      let translateX = 0;
+
+      if (slidesPerView === 1) {
+        // Mobile: translate by 100% per slide
+        translateX = -currentSlide * 100;
+      } else if (slidesPerView === 2) {
+        // Tablet: translate by 50% per slide
+        translateX = -currentSlide * 50;
+      } else {
+        // Desktop: translate by 33.33% per slide
+        translateX = -currentSlide * (100 / 3);
+      }
+
       carousel.style.transform = `translateX(${translateX}%)`;
 
       // Update dots
       const dots = dotsContainer.children;
       for (let i = 0; i < dots.length; i++) {
-        dots[i].className = `w-3 h-3 rounded-full transition-all ${i === currentSlide ? 'bg-zone-green-400' : 'bg-gray-600 hover:bg-gray-500'}`;
+        const dot = dots[i] as HTMLElement;
+        dot.className = `w-3 h-3 rounded-full transition-all ${i === currentSlide ? 'bg-zone-green-400' : 'bg-gray-600 hover:bg-gray-500'}`;
       }
     };
 
@@ -193,13 +228,54 @@ export class App implements OnInit {
     // Auto-play functionality (slower for professional look)
     let autoPlayInterval = setInterval(nextSlide, 6000);
 
-    // Pause auto-play on hover
+    // Pause auto-play on hover (desktop) and touch (mobile)
     carousel.addEventListener('mouseenter', () => {
       clearInterval(autoPlayInterval);
     });
 
     carousel.addEventListener('mouseleave', () => {
       autoPlayInterval = setInterval(nextSlide, 6000);
+    });
+
+    // Enhanced mobile touch events
+    let touchStartX = 0;
+    let touchEndX = 0;
+    let isTouching = false;
+
+    carousel.addEventListener('touchstart', (e) => {
+      clearInterval(autoPlayInterval);
+      touchStartX = e.changedTouches[0].screenX;
+      isTouching = true;
+    });
+
+    carousel.addEventListener('touchmove', (e) => {
+      if (!isTouching) return;
+      // Prevent default to avoid scrolling issues
+      e.preventDefault();
+    });
+
+    carousel.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      isTouching = false;
+
+      // Handle swipe gestures
+      const swipeThreshold = 50; // Minimum distance for swipe
+      const swipeDistance = touchEndX - touchStartX;
+
+      if (Math.abs(swipeDistance) > swipeThreshold) {
+        if (swipeDistance > 0) {
+          // Swipe right - go to previous slide
+          prevSlide();
+        } else {
+          // Swipe left - go to next slide
+          nextSlide();
+        }
+      }
+
+      // Resume auto-play after touch interaction
+      setTimeout(() => {
+        autoPlayInterval = setInterval(nextSlide, 6000);
+      }, 3000);
     });
 
     // Initialize
@@ -384,5 +460,25 @@ Wall Street, Rustenburg - Waterfall Business Park
   closeToast() {
     this.toastMessage = '';
     this.toastTitle = '';
+  }
+
+  // Mobile menu methods
+  toggleMobileMenu() {
+    this.isMobileMenuOpen = !this.isMobileMenuOpen;
+  }
+
+  closeMobileMenu() {
+    this.isMobileMenuOpen = false;
+  }
+
+  // Navigate to section and close mobile menu
+  navigateToSection(sectionId: string) {
+    if (isPlatformBrowser(this.platformId)) {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+    this.closeMobileMenu();
   }
 }
