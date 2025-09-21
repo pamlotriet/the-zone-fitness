@@ -1,0 +1,24 @@
+app = 'the-zone-fitness'
+primary_region = 'jnb'
+
+[build]
+
+[http_service]
+  internal_port = 4000
+  force_https = true
+  auto_stop_machines = 'stop'
+  auto_start_machines = true
+  min_machines_running = 0
+  processes = ['app']
+
+[[http_service.checks]]
+  grace_period = "1s"
+  interval = "15s"
+  restart_limit = 0
+  timeout = "2s"
+  method = "GET"
+  path = "/"
+
+[env]
+  NODE_ENV = "production"
+  PORT = "4000"
