@@ -63,6 +63,13 @@
               class="absolute bottom-1 left-1/2 w-0 h-0.5 bg-gradient-to-r from-zone-green-400 to-zone-green-600 transition-all duration-300 group-hover:w-3/4 transform -translate-x-1/2">
             </div>
           </a>
+          <a href="#pricing"
+            class="nav-link group relative text-white hover:text-zone-green-400 px-5 py-4 text-sm font-semibold transition-all duration-300 hover:bg-zone-green-500/10 rounded-lg">
+            <span class="relative z-10">PRICING</span>
+            <div
+              class="absolute bottom-1 left-1/2 w-0 h-0.5 bg-gradient-to-r from-zone-green-400 to-zone-green-600 transition-all duration-300 group-hover:w-3/4 transform -translate-x-1/2">
+            </div>
+          </a>
           <a href="#contact"
             class="nav-link group relative text-white hover:text-zone-green-400 px-5 py-4 text-sm font-semibold transition-all duration-300 hover:bg-zone-green-500/10 rounded-lg">
             <span class="relative z-10">CONTACT</span>
@@ -108,6 +115,11 @@
         (click)="navigateToSection('schedule')"
         class="mobile-nav-link block px-3 py-2 rounded-md text-base font-semibold text-white hover:text-zone-green-400 hover:bg-zone-green-500/10 transition-all duration-200 w-full text-left">
         CLASSES
+      </button>
+      <button
+        (click)="navigateToSection('pricing')"
+        class="mobile-nav-link block px-3 py-2 rounded-md text-base font-semibold text-white hover:text-zone-green-400 hover:bg-zone-green-500/10 transition-all duration-200 w-full text-left">
+        PRICING
       </button>
       <button
         (click)="navigateToSection('contact')"
@@ -951,6 +963,303 @@
           <div
             class="h-full bg-gradient-to-r from-zone-green-400/60 to-zone-green-500/60 rounded-full transition-all duration-1000 ease-out"
             style="width: 33.33%"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Pricing Section -->
+<section id="pricing" class="py-16 sm:py-24 bg-gradient-to-br from-zone-black via-gray-900 to-zone-black relative overflow-hidden">
+  <!-- Animated Background Overlays -->
+  <div class="absolute inset-0 bg-gradient-to-r from-transparent via-zone-green-500/5 to-transparent"></div>
+
+  <!-- Fitness Equipment Background Decorations -->
+  <div class="absolute top-20 left-10 opacity-10 animate-pulse">
+    <svg width="120" height="140" viewBox="0 0 120 140" class="text-zone-green-500">
+      <!-- Barbell silhouette -->
+      <rect x="10" y="65" width="100" height="8" fill="currentColor" />
+      <rect x="5" y="58" width="8" height="22" fill="currentColor" />
+      <rect x="107" y="58" width="8" height="22" fill="currentColor" />
+      <rect x="0" y="60" width="5" height="18" fill="currentColor" />
+      <rect x="115" y="60" width="5" height="18" fill="currentColor" />
+    </svg>
+  </div>
+
+  <div class="absolute bottom-20 right-10 opacity-10 animate-pulse" style="animation-delay: 1s;">
+    <svg width="100" height="100" viewBox="0 0 100 100" class="text-zone-green-500">
+      <!-- Kettlebell silhouette -->
+      <circle cx="50" cy="40" r="25" fill="currentColor" />
+      <rect x="40" y="15" width="20" height="15" rx="10" fill="currentColor" />
+      <rect x="45" y="10" width="10" height="10" rx="5" fill="currentColor" />
+    </svg>
+  </div>
+
+  <div class="absolute top-1/2 right-20 opacity-10 animate-pulse" style="animation-delay: 2s;">
+    <svg width="80" height="80" viewBox="0 0 80 80" class="text-zone-green-500">
+      <!-- Dumbbell silhouette -->
+      <rect x="10" y="35" width="60" height="10" fill="currentColor" />
+      <rect x="5" y="30" width="10" height="20" fill="currentColor" />
+      <rect x="65" y="30" width="10" height="20" fill="currentColor" />
+    </svg>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <!-- Header -->
+    <div class="text-center mb-16">
+      <h2 class="text-5xl sm:text-6xl font-black bg-gradient-to-r from-zone-green-400 to-zone-green-600 bg-clip-text text-transparent mb-6 drop-shadow-lg">
+        PRICING & PACKAGES
+      </h2>
+      <p class="text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
+        Choose the perfect package for your fitness journey and unlock your potential at The Zone
+      </p>
+    </div>
+
+    <!-- 1 Year Contract -->
+    <div class="mb-20">
+      <div class="text-center mb-12">
+        <h3 class="text-4xl font-bold text-white mb-4 relative inline-block">
+          1 YEAR CONTRACT
+          <div class="absolute -bottom-2 left-1/2 w-20 h-1 bg-gradient-to-r from-zone-green-400 to-zone-green-600 transform -translate-x-1/2 rounded-full"></div>
+        </h3>
+        <p class="text-gray-400 mt-6">Commit to your transformation with our annual membership plans</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="group relative bg-gradient-to-br from-gray-800/80 via-gray-900/90 to-zone-black backdrop-blur-md rounded-2xl p-8 border border-zone-green-500/20 hover:border-zone-green-400/40 transition-all duration-500 hover:transform hover:scale-105 shadow-2xl hover:shadow-zone-green-500/20" ngSkipHydration>
+          <div class="absolute inset-0 bg-gradient-to-br from-zone-green-500/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <div class="relative z-10">
+            <div class="flex items-center mb-4">
+              <i data-lucide="calendar" class="w-6 h-6 text-zone-green-400 mr-3"></i>
+              <h4 class="text-xl font-bold text-white">2 Sessions/Week</h4>
+            </div>
+            <div class="mb-6">
+              <span class="text-gray-400 text-sm uppercase tracking-wider">Monthly Rate</span>
+              <div class="text-3xl font-black text-zone-green-400 mt-1">R500</div>
+            </div>
+            <div class="space-y-2 text-sm text-gray-300">
+              <div class="flex items-center">
+                <i data-lucide="check" class="w-4 h-4 text-zone-green-400 mr-2"></i>
+                <span>Personal Trainer Included</span>
+              </div>
+              <div class="flex items-center">
+                <i data-lucide="check" class="w-4 h-4 text-zone-green-400 mr-2"></i>
+                <span>Flexible Scheduling</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="group relative bg-gradient-to-br from-gray-800/80 via-gray-900/90 to-zone-black backdrop-blur-md rounded-2xl p-8 border border-zone-green-500/20 hover:border-zone-green-400/40 transition-all duration-500 hover:transform hover:scale-105 shadow-2xl hover:shadow-zone-green-500/20" ngSkipHydration>
+          <div class="absolute inset-0 bg-gradient-to-br from-zone-green-500/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <div class="relative z-10">
+            <div class="flex items-center mb-4">
+              <i data-lucide="calendar" class="w-6 h-6 text-zone-green-400 mr-3"></i>
+              <h4 class="text-xl font-bold text-white">3 Sessions/Week</h4>
+            </div>
+            <div class="mb-6">
+              <span class="text-gray-400 text-sm uppercase tracking-wider">Monthly Rate</span>
+              <div class="text-3xl font-black text-zone-green-400 mt-1">R650</div>
+            </div>
+            <div class="space-y-2 text-sm text-gray-300">
+              <div class="flex items-center">
+                <i data-lucide="check" class="w-4 h-4 text-zone-green-400 mr-2"></i>
+                <span>Personal Trainer Included</span>
+              </div>
+              <div class="flex items-center">
+                <i data-lucide="check" class="w-4 h-4 text-zone-green-400 mr-2"></i>
+                <span>Progress Tracking</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="group relative bg-gradient-to-br from-gray-800/80 via-gray-900/90 to-zone-black backdrop-blur-md rounded-2xl p-8 border border-zone-green-500/20 hover:border-zone-green-400/40 transition-all duration-500 hover:transform hover:scale-105 shadow-2xl hover:shadow-zone-green-500/20" ngSkipHydration>
+          <div class="absolute inset-0 bg-gradient-to-br from-zone-green-500/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <div class="relative z-10">
+            <div class="flex items-center mb-4">
+              <i data-lucide="calendar" class="w-6 h-6 text-zone-green-400 mr-3"></i>
+              <h4 class="text-xl font-bold text-white">4 Sessions/Week</h4>
+            </div>
+            <div class="mb-6">
+              <span class="text-gray-400 text-sm uppercase tracking-wider">Monthly Rate</span>
+              <div class="text-3xl font-black text-zone-green-400 mt-1">R750</div>
+            </div>
+            <div class="space-y-2 text-sm text-gray-300">
+              <div class="flex items-center">
+                <i data-lucide="check" class="w-4 h-4 text-zone-green-400 mr-2"></i>
+                <span>Personal Trainer Included</span>
+              </div>
+              <div class="flex items-center">
+                <i data-lucide="check" class="w-4 h-4 text-zone-green-400 mr-2"></i>
+                <span>Nutrition Guidance</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="group relative bg-gradient-to-br from-zone-green-500/10 via-gray-900/90 to-zone-black backdrop-blur-md rounded-2xl p-8 border-2 border-zone-green-400/50 hover:border-zone-green-400 transition-all duration-500 hover:transform hover:scale-105 shadow-2xl shadow-zone-green-500/30" ngSkipHydration>
+          <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
+            <span class="bg-gradient-to-r from-zone-green-400 to-zone-green-600 text-zone-black px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Most Popular</span>
+          </div>
+          <div class="absolute inset-0 bg-gradient-to-br from-zone-green-500/10 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <div class="relative z-10">
+            <div class="flex items-center mb-4">
+              <i data-lucide="infinity" class="w-6 h-6 text-zone-green-400 mr-3"></i>
+              <h4 class="text-xl font-bold text-white">Unlimited</h4>
+            </div>
+            <div class="mb-6">
+              <span class="text-gray-400 text-sm uppercase tracking-wider">Monthly Rate</span>
+              <div class="text-3xl font-black text-zone-green-400 mt-1">R900</div>
+            </div>
+            <div class="space-y-2 text-sm text-gray-300">
+              <div class="flex items-center">
+                <i data-lucide="check" class="w-4 h-4 text-zone-green-400 mr-2"></i>
+                <span>Personal Trainer Included</span>
+              </div>
+              <div class="flex items-center">
+                <i data-lucide="check" class="w-4 h-4 text-zone-green-400 mr-2"></i>
+                <span>Full Access + Priority</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2 Year Contract -->
+    <div class="mb-20">
+      <div class="text-center mb-12">
+        <h3 class="text-4xl font-bold text-white mb-4 relative inline-block">
+          2 YEAR CONTRACT
+          <div class="absolute -bottom-2 left-1/2 w-20 h-1 bg-gradient-to-r from-zone-green-400 to-zone-green-600 transform -translate-x-1/2 rounded-full"></div>
+        </h3>
+        <p class="text-gray-400 mt-6">Maximum savings for the ultimate fitness commitment</p>
+      </div>
+      <div class="flex justify-center">
+        <div class="group relative bg-gradient-to-br from-zone-green-500/10 via-gray-900/90 to-zone-black backdrop-blur-md rounded-2xl p-10 border-2 border-zone-green-400/50 hover:border-zone-green-400 transition-all duration-500 hover:transform hover:scale-105 shadow-2xl shadow-zone-green-500/30 w-full max-w-md" ngSkipHydration>
+          <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
+            <span class="bg-gradient-to-r from-zone-green-400 to-zone-green-600 text-zone-black px-6 py-2 rounded-full text-sm font-bold uppercase tracking-wider">Best Value</span>
+          </div>
+          <div class="absolute inset-0 bg-gradient-to-br from-zone-green-500/10 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <div class="relative z-10 text-center">
+            <div class="flex items-center justify-center mb-6">
+              <i data-lucide="infinity" class="w-8 h-8 text-zone-green-400 mr-3"></i>
+              <h4 class="text-2xl font-bold text-white">Unlimited Access</h4>
+            </div>
+            <div class="mb-8">
+              <span class="text-gray-400 text-sm uppercase tracking-wider">Monthly Rate</span>
+              <div class="text-4xl font-black text-zone-green-400 mt-2">R750</div>
+              <div class="text-sm text-gray-500 mt-1">Save R150/month!</div>
+            </div>
+            <div class="space-y-3 text-sm text-gray-300">
+              <div class="flex items-center">
+                <i data-lucide="check" class="w-4 h-4 text-zone-green-400 mr-3"></i>
+                <span>Unlimited Sessions</span>
+              </div>
+              <div class="flex items-center">
+                <i data-lucide="check" class="w-4 h-4 text-zone-green-400 mr-3"></i>
+                <span>Personal Trainer Included</span>
+              </div>
+              <div class="flex items-center">
+                <i data-lucide="check" class="w-4 h-4 text-zone-green-400 mr-3"></i>
+                <span>Nutrition Consultation</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Special Packages -->
+    <div class="mb-16">
+      <div class="text-center mb-12">
+        <h3 class="text-4xl font-bold text-white mb-4 relative inline-block">
+          SPECIAL PACKAGES
+          <div class="absolute -bottom-2 left-1/2 w-20 h-1 bg-gradient-to-r from-zone-green-400 to-zone-green-600 transform -translate-x-1/2 rounded-full"></div>
+        </h3>
+        <p class="text-gray-400 mt-6">Tailored solutions for every lifestyle and budget</p>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <!-- Couples Package -->
+        <div class="group relative bg-gradient-to-br from-gray-800/80 via-gray-900/90 to-zone-black backdrop-blur-md rounded-2xl p-8 border border-zone-green-500/20 hover:border-zone-green-400/40 transition-all duration-500 hover:transform hover:scale-105 shadow-2xl hover:shadow-zone-green-500/20" ngSkipHydration>
+          <div class="absolute inset-0 bg-gradient-to-br from-zone-green-500/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <div class="relative z-10">
+            <div class="flex items-center mb-4">
+              <i data-lucide="heart" class="w-6 h-6 text-zone-green-400 mr-3"></i>
+              <h4 class="text-xl font-bold text-white">Couples Package</h4>
+            </div>
+            <p class="text-gray-400 text-sm mb-6">Train together, grow together</p>
+            <div class="mb-6">
+              <span class="text-gray-400 text-sm uppercase tracking-wider">Monthly Rate (Both)</span>
+              <div class="text-3xl font-black text-zone-green-400 mt-1">R1350</div>
+            </div>
+            <div class="space-y-2 text-sm text-gray-300">
+              <div class="flex items-center">
+                <i data-lucide="check" class="w-4 h-4 text-zone-green-400 mr-2"></i>
+                <span>Unlimited Sessions for 2</span>
+              </div>
+              <div class="flex items-center">
+                <i data-lucide="check" class="w-4 h-4 text-zone-green-400 mr-2"></i>
+                <span>Joint Training Programs</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Student Package -->
+        <div class="lg:col-span-2 group relative bg-gradient-to-br from-gray-800/80 via-gray-900/90 to-zone-black backdrop-blur-md rounded-2xl p-8 border border-zone-green-500/20 hover:border-zone-green-400/40 transition-all duration-500 shadow-2xl hover:shadow-zone-green-500/20" ngSkipHydration>
+          <div class="absolute inset-0 bg-gradient-to-br from-zone-green-500/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <div class="relative z-10">
+            <div class="flex items-center mb-4">
+              <i data-lucide="graduation-cap" class="w-6 h-6 text-zone-green-400 mr-3"></i>
+              <h4 class="text-xl font-bold text-white">Student Package</h4>
+            </div>
+            <p class="text-gray-400 text-sm mb-6">Special rates for students with valid ID</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div class="bg-gray-800/60 backdrop-blur-sm rounded-xl p-6 border border-zone-green-500/10">
+                <div class="flex items-center justify-between mb-4">
+                  <span class="text-gray-300 font-medium">3 Sessions/Week</span>
+                  <span class="text-2xl font-bold text-zone-green-400">R400</span>
+                </div>
+                <div class="space-y-2 text-sm text-gray-400">
+                  <div class="flex items-center">
+                    <i data-lucide="check" class="w-3 h-3 text-zone-green-400 mr-2"></i>
+                    <span>Student ID Required</span>
+                  </div>
+                </div>
+              </div>
+              <div class="bg-gray-800/60 backdrop-blur-sm rounded-xl p-6 border border-zone-green-500/10">
+                <div class="flex items-center justify-between mb-4">
+                  <span class="text-gray-300 font-medium">Unlimited</span>
+                  <span class="text-2xl font-bold text-zone-green-400">R550</span>
+                </div>
+                <div class="space-y-2 text-sm text-gray-400">
+                  <div class="flex items-center">
+                    <i data-lucide="check" class="w-3 h-3 text-zone-green-400 mr-2"></i>
+                    <span>Full Access</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Note -->
+    <div class="relative bg-gradient-to-r from-zone-green-500/10 via-zone-green-500/5 to-zone-green-500/10 backdrop-blur-md border border-zone-green-400/30 rounded-2xl p-8 shadow-2xl" ngSkipHydration>
+      <div class="flex items-start">
+        <div class="flex-shrink-0 mr-4">
+          <div class="w-10 h-10 bg-gradient-to-br from-zone-green-400 to-zone-green-600 rounded-full flex items-center justify-center">
+            <i data-lucide="info" class="w-5 h-5 text-zone-black"></i>
+          </div>
+        </div>
+        <div>
+          <h4 class="text-xl font-bold text-white mb-2">What's Included</h4>
+          <p class="text-gray-300 text-lg leading-relaxed">
+            Each class comes with a dedicated Personal Trainer/Coach who focuses on your individual goals,
+            ensuring you get the most out of every session at The Zone.
+          </p>
         </div>
       </div>
     </div>

@@ -106,7 +106,7 @@ export class App implements OnInit {
   private updateActiveNavLink() {
     if (!isPlatformBrowser(this.platformId)) return;
 
-    const sections = ['home', 'about', 'coaches', 'schedule', 'contact', 'nutrition'];
+    const sections = ['home', 'about', 'coaches', 'schedule', 'pricing', 'contact', 'nutrition'];
     const scrollPosition = window.scrollY + 100; // Offset for fixed nav
 
     for (const section of sections) {
