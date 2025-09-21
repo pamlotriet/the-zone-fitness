@@ -1,4 +1,4 @@
-import { Component, OnInit, HostListener, Inject, PLATFORM_ID } from '@angular/core';
+import { Component, OnInit, HostListener, Inject, PLATFORM_ID, ChangeDetectorRef } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { FormsModule, NgForm } from '@angular/forms';
@@ -55,7 +55,8 @@ export class App implements OnInit {
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: Object,
-    private http: HttpClient
+    private http: HttpClient,
+    private cdr: ChangeDetectorRef
   ) { }
 
   ngOnInit() {
@@ -366,6 +367,12 @@ Wall Street, Rustenburg - Waterfall Business Park
     this.toastType = type;
     this.toastTitle = title;
     this.toastMessage = message;
+
+    // Force change detection if needed
+    if (isPlatformBrowser(this.platformId)) {
+      // Trigger change detection to ensure Angular updates the DOM
+      this.cdr.detectChanges();
+    }
 
     // Auto-hide toast after 5 seconds
     setTimeout(() => {
