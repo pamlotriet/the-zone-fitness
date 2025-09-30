@@ -1,4 +1,11 @@
-import { Component, OnInit, HostListener, Inject, PLATFORM_ID, ChangeDetectorRef } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  HostListener,
+  Inject,
+  PLATFORM_ID,
+  ChangeDetectorRef,
+} from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { FormsModule, NgForm } from '@angular/forms';
@@ -12,11 +19,10 @@ import { HttpClient } from '@angular/common/http';
   templateUrl: './app.html',
   styleUrl: './app.scss',
   host: {
-    'ngSkipHydration': 'true'
-  }
+    ngSkipHydration: 'true',
+  },
 })
 export class App implements OnInit {
-
   // Form and toast properties
   isSubmitting = false;
   toastMessage = '';
@@ -27,7 +33,8 @@ export class App implements OnInit {
   isMobileMenuOpen = false;
 
   // SMTP server URL (Azure hosted)
-  private smtpServerUrl = 'https://zone-fitness-smtp-bthxdyd5c9d4dyff.southafricanorth-01.azurewebsites.net';
+  private smtpServerUrl =
+    'https://zone-fitness-smtp-bthxdyd5c9d4dyff.southafricanorth-01.azurewebsites.net';
 
   // Array of all gym images
   gymImages: string[] = [
@@ -51,19 +58,16 @@ export class App implements OnInit {
     '7b106720-4b2e-48a3-a358-059d431be474.JPG',
     'IMG_9416.jpg',
     'IMG_9418.jpg',
-    'IMG_9419.jpg'
+    'IMG_9419.jpg',
   ];
 
-  nutritionImages: string[] = [
-    'IMG_2014.JPG',
-    'IMG_2015.JPG',
-  ];
+  nutritionImages: string[] = ['IMG_2014.JPG', 'IMG_2015.JPG'];
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: Object,
     private http: HttpClient,
     private cdr: ChangeDetectorRef
-  ) { }
+  ) {}
 
   ngOnInit() {
     if (isPlatformBrowser(this.platformId)) {
@@ -119,7 +123,7 @@ export class App implements OnInit {
 
         if (scrollPosition >= elementTop && scrollPosition < elementTop + elementHeight) {
           // Remove active class from all nav links
-          document.querySelectorAll('.nav-link').forEach(link => {
+          document.querySelectorAll('.nav-link').forEach((link) => {
             link.classList.remove('active');
           });
 
@@ -147,10 +151,9 @@ export class App implements OnInit {
     // Responsive slides per view
     const getSlidesPerView = () => {
       if (window.innerWidth >= 1024) return 3; // lg: show 3
-      if (window.innerWidth >= 768) return 2;  // md: show 2
+      if (window.innerWidth >= 768) return 2; // md: show 2
       return 1; // mobile: show 1
     };
-
 
     let slidesPerView = getSlidesPerView();
     const maxSlideIndex = Math.max(0, totalSlides - slidesPerView);
@@ -162,7 +165,9 @@ export class App implements OnInit {
       for (let i = 0; i < numDots; i++) {
         const dot = document.createElement('button');
         // Desktop-only dots (hidden on mobile)
-        dot.className = `w-3 h-3 rounded-full transition-all ${i === 0 ? 'bg-zone-green-400' : 'bg-gray-600 hover:bg-gray-500'}`;
+        dot.className = `w-3 h-3 rounded-full transition-all ${
+          i === 0 ? 'bg-zone-green-400' : 'bg-gray-600 hover:bg-gray-500'
+        }`;
         dot.style.cursor = 'pointer';
         dot.addEventListener('click', () => goToSlide(i));
         dotsContainer.appendChild(dot);
@@ -190,7 +195,9 @@ export class App implements OnInit {
       const dots = dotsContainer.children;
       for (let i = 0; i < dots.length; i++) {
         const dot = dots[i] as HTMLElement;
-        dot.className = `w-3 h-3 rounded-full transition-all ${i === currentSlide ? 'bg-zone-green-400' : 'bg-gray-600 hover:bg-gray-500'}`;
+        dot.className = `w-3 h-3 rounded-full transition-all ${
+          i === currentSlide ? 'bg-zone-green-400' : 'bg-gray-600 hover:bg-gray-500'
+        }`;
       }
     };
 
@@ -316,7 +323,7 @@ export class App implements OnInit {
 
       // Prepare email data
       const emailData = {
-        to: 'pamela.lotriet@gmail.com', // Replace with your business email
+        to: 'thezone@thezonefitness.co.za', // Replace with your business email
         subject: `New Contact Form Message from ${formData.firstName} ${formData.lastName}`,
         html: `
           <!DOCTYPE html>
@@ -346,13 +353,17 @@ export class App implements OnInit {
                   <div style="background: #f9fafb; border-radius: 8px; padding: 24px; margin-bottom: 20px;">
                     <div style="margin-bottom: 16px;">
                       <span style="color: #6b7280; font-size: 14px; font-weight: 500;">Name</span>
-                      <div style="color: #111827; font-size: 16px; font-weight: 600; margin-top: 4px;">${formData.firstName} ${formData.lastName}</div>
+                      <div style="color: #111827; font-size: 16px; font-weight: 600; margin-top: 4px;">${
+                        formData.firstName
+                      } ${formData.lastName}</div>
                     </div>
 
                     <div>
                       <span style="color: #6b7280; font-size: 14px; font-weight: 500;">Email</span>
                       <div style="color: #111827; font-size: 16px; font-weight: 600; margin-top: 4px;">
-                        <a href="mailto:${formData.email}" style="color: #10b981; text-decoration: none;">${formData.email}</a>
+                        <a href="mailto:${
+                          formData.email
+                        }" style="color: #10b981; text-decoration: none;">${formData.email}</a>
                       </div>
                     </div>
                   </div>
@@ -361,7 +372,9 @@ export class App implements OnInit {
                   <div>
                     <span style="color: #6b7280; font-size: 14px; font-weight: 500;">Message</span>
                     <div style="background: #ffffff; border: 1px solid #e5e7eb; border-radius: 8px; padding: 20px; margin-top: 8px;">
-                      <p style="margin: 0; color: #374151; font-size: 15px; line-height: 1.6;">${formData.message}</p>
+                      <p style="margin: 0; color: #374151; font-size: 15px; line-height: 1.6;">${
+                        formData.message
+                      }</p>
                     </div>
                   </div>
                 </div>
@@ -408,18 +421,23 @@ ${formData.message}
 ---
 The Zone Health & Fitness
 Wall Street, Rustenburg - Waterfall Business Park
-        `
+        `,
       };
 
       // Send email to SMTP server
-      const response = await this.http.post(`${this.smtpServerUrl}/send-email`, emailData).toPromise();
+      const response = await this.http
+        .post(`${this.smtpServerUrl}/send-email`, emailData)
+        .toPromise();
 
       // Show success toast
-      this.showToast('success', 'Message Sent!', 'Thank you for contacting us. We\'ll get back to you soon.');
+      this.showToast(
+        'success',
+        'Message Sent!',
+        "Thank you for contacting us. We'll get back to you soon."
+      );
 
       // Reset form
       form.resetForm();
-
     } catch (error: any) {
       console.error('Error sending message:', error);
 
@@ -427,7 +445,8 @@ Wall Street, Rustenburg - Waterfall Business Park
       let errorMessage = 'Please try again later or contact us directly.';
 
       if (error.status === 0) {
-        errorMessage = 'Unable to connect to email server. Please check if the SMTP server is running.';
+        errorMessage =
+          'Unable to connect to email server. Please check if the SMTP server is running.';
       } else if (error.error?.details) {
         errorMessage = error.error.details;
       }
